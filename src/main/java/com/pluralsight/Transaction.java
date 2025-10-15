@@ -35,7 +35,7 @@ public class Transaction {
                 '}';
     }
 
-    //    setters and getters
+    //     getters and setters
 
     public LocalDate getDate() {
         return date;
