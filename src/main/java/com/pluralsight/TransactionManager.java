@@ -1,44 +1,68 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class TransactionManager {
+    static Scanner scanner = new Scanner(System.in);
+    static String filePath = "Data/transactions.csv";
+    static ArrayList<Transaction> transactionList = new ArrayList<>();
 
-    public static List<Transaction> loadTransactionsFromFile(String filePath){
-        List<Transaction> transactions = new ArrayList<>();
 
-        DateTimeFormatter date = DateTimeFormatter.ISO_LOCAL_DATE; //yyyy/MM/dd
-        DateTimeFormatter time = DateTimeFormatter.ofLocalizedTime(FormatStyle.valueOf("HH:mm:ss"));
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
-            bufferedReader.readLine();
+    public static void addTransaction(boolean isDeposit) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath, true))) {
+            String option;
 
-            String transactionString;
-            while ((transactionString = bufferedReader.readLine())!= null){
+            do {
+                // Get today's date and time
+                String date = LocalDate.now().toString();
+                String time = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 
-                String[] transactionArr = transactionString.split("\\|");
-                Transaction transaction = new Transaction(LocalDate.parse(transactionArr[0],date),LocalTime.parse(transactionArr[1], time), transactionArr[2], transactionArr[3], Double.parseDouble(transactionArr[4]));
+                System.out.println("\n--- " + (isDeposit ? "Add Deposit" : "Make Payment") + " ---");
+                System.out.print("\nEnter Description: ");
+                String description = scanner.nextLine().trim();
 
-                transactions.add(transaction);
-            }
+                System.out.print("\nEnter Vendor Name: ");
+                String vendor = scanner.nextLine().trim();
 
-        }catch (IOException e) {
-            throw new RuntimeException(e);
+                System.out.print("\nEnter Amount (0.0): ");
+                double amount = scanner.nextDouble();
+                scanner.nextLine(); // clear buffer
+                if (!isDeposit) {
+                    amount = -amount;
+                }
+
+                // Create and save transaction
+                String line = String.format("%s|%s|%s|%s|%.2f\n", date, time, description, vendor, amount);
+                bufferedWriter.write(line);
+                bufferedWriter.flush();
+
+                //  Confirmation message added here
+                System.out.printf(" %s of $%.2f to '%s' for '%s' was successfully recorded.\n",
+                        isDeposit ? "Deposit" : "Payment",
+                        Math.abs(amount),
+                        vendor,
+                        description);
+
+                System.out.print("\nAdd another? (X to return, anything else to continue): ");
+                option = scanner.nextLine().trim().toUpperCase();
+
+            } while (!option.equals("X"));
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
-        return transactions;
-    }
-    public static void displayTransactions(List<Transaction> transactions){
-        for (Transaction transaction : transactions){
-            System.out.println(transaction);
-        }
-    }
 
+    }
 }
