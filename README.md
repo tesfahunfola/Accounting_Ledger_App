@@ -127,18 +127,6 @@ Enter Amount (0.0): 1500
 ```
 
 
-## 📊 Report Types
-
-
-| Option | Report Type      | Description                      |
-| :----: | ---------------- | -------------------------------- |
-|   1️⃣  | Month-to-Date    | All transactions from this month |
-|   2️⃣  | Previous Month   | All from last calendar month     |
-|   3️⃣  | Year-to-Date     | Transactions since January 1     |
-|   4️⃣  | Previous Year    | Last year’s transactions         |
-|   5️⃣  | Search by Vendor | Find entries by vendor name      |
-|   6️⃣  | Custom Search    | Filter by any field              |
-
 
 
 ## ✨ Custom Search
