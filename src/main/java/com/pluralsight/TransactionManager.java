@@ -48,13 +48,15 @@ public class TransactionManager {
                 bufferedWriter.flush();
 
                 //  Confirmation message added here
-                System.out.printf(" %s of $%.2f to '%s' for '%s' was successfully recorded.\n",
+                System.out.println("\n──────────────────────────────");
+                System.out.printf("💰 %-8s : $%.2f%n🏷️ Vendor      : %s%n📝 Description : %s%n✅ Status      : Transaction saved successfully!%n",
                         isDeposit ? "Deposit" : "Payment",
                         Math.abs(amount),
                         vendor,
                         description);
+                System.out.println("──────────────────────────────");
+                System.out.print("\n➕ Add another? (X to return, any other key to continue): ");
 
-                System.out.print("\nAdd another? (X to return, anything else to continue): ");
                 option = scanner.nextLine().trim().toUpperCase();
 
             } while (!option.equals("X"));
