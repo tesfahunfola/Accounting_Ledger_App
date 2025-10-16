@@ -17,7 +17,6 @@ import java.util.Scanner;
 public class TransactionManager {
     static Scanner scanner = new Scanner(System.in);
     static String filePath = "Data/transactions.csv";
-    static ArrayList<Transaction> transactionList = new ArrayList<>();
 
 
     public static void addTransaction(boolean isDeposit) {
