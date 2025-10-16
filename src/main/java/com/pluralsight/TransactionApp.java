@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class TransactionApp {
     static Scanner scanner = new Scanner(System.in);
-//    static List<Transaction> transactionList = new ArrayList<>();
+
 
     public static void main(String[] args) {
         showHomeScreen();
@@ -47,6 +46,7 @@ public class TransactionApp {
             }
         }while (!option.equalsIgnoreCase("X"));
     }
+    //                    -------- display ledger Menu --------
     public static void displayLedger(){
         String option;
         do {
@@ -82,7 +82,7 @@ public class TransactionApp {
 
         }while (!option.equalsIgnoreCase("H"));
     }
-    //                    --------📊 display Report Menu --------
+    //                    -------- display Report Menu --------
 public static void displayReportMenu(){
 
         String option;

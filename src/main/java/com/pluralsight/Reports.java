@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Reports {
     static Scanner scanner = new Scanner(System.in);
     static String filePath = "Data/transactions.csv";
-//    static List<Transaction> transactionList = new ArrayList<>();
+
 
     public static void displayReport(int reportType) {
         LocalDate todayDate = LocalDate.now();
