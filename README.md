@@ -58,6 +58,7 @@ All transactions are saved and loaded automatically from a CSV file (`transactio
 AccountingLedger/
 ├── Data/
 │ └── transactions.csv
+├── Screenshots/
 ├── src/com/pluralsight/
 │ ├── Transaction.java
 │ ├── TransactionManager.java
