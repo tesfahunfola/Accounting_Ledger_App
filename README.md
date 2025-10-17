@@ -157,6 +157,8 @@ Amount (exact):
 
 <img width="955" height="569" alt="img-6" src="https://github.com/user-attachments/assets/64158d0e-1ff1-420c-a94f-b465c252967f" />
 
+<img width="960" height="569" alt="img-7" src="https://github.com/user-attachments/assets/468edac9-df1c-41a7-b358-230ed76fbf09" />
+
 
 
 
@@ -187,3 +189,8 @@ date|time|description|vendor|amount
 
 💡 This project demonstrates practical Java fundamentals:
 file I/O, OOP, user input handling, data parsing, and modular design — wrapped in a clean, engaging CLI interface.
+
+
+##💡 APA 7th Edition Citation
+
+OpenAI. (2025, October 16). Assistance in creating a README file for the Accounting Ledger Capstone Project. ChatGPT (GPT-5 model). https://chat.openai.com/
