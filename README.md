@@ -191,6 +191,6 @@ date|time|description|vendor|amount
 file I/O, OOP, user input handling, data parsing, and modular design — wrapped in a clean, engaging CLI interface.
 
 
-##💡 APA 7th Edition Citation
+## 💡 APA 7th Edition Citation
 
 OpenAI. (2025, October 16). Assistance in creating a README file for the Accounting Ledger Capstone Project. ChatGPT (GPT-5 model). https://chat.openai.com/
