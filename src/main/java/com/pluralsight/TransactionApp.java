@@ -20,6 +20,7 @@ public class TransactionApp {
                     ==✨🏡 Home Screen 🏠✨==
                     💵💚 D) Add Deposits 💰✅
                     💳⚡ P) Make Payment 💸💨
+                    🧮 B) Balance Tracking 🧮
                     📘🧮 L) Ledger 📊📒
                     🚀 X) Exit 🌟👋
                     """);
@@ -32,6 +33,9 @@ public class TransactionApp {
                     break;
                 case "P":
                     TransactionManager.addTransaction(false);
+                    break;
+                case "B":
+                    BalanceTracker.showBalanceSummary();
                     break;
                 case "L":
                     displayLedger();
