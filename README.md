@@ -11,7 +11,6 @@
 - [🧠 Project Structure](#-project-structure)
 - [🚀 How to Run](#-how-to-run)
 - [💻 Usage Guide](#-usage-guide)
-- [📊 Report Types](#-report-types)
 - [✨ Custom Search](#-custom-search)
 - [🧩 Interesting Code Snippet](#-interesting-code-snippet)
 - [📸 Screenshots](#-screenshots)
@@ -60,9 +59,10 @@ AccountingLedger/
 │ └── transactions.csv
 ├── Screenshots/
 ├── src/com/pluralsight/
+│ ├── BalanceTracker.java
 │ ├── Transaction.java
 │ ├── TransactionManager.java
-│ ├── TransactionService.java
+│ ├── Ledger.java
 │ ├── Reports.java
 │ └── TransactionApp.java
 └── README.md
