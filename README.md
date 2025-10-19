@@ -12,10 +12,10 @@
 - [🚀 How to Run](#-how-to-run)
 - [💻 Usage Guide](#-usage-guide)
 - [✨ Custom Search](#-custom-search)
-- [🧩 Interesting Code Snippet](#-interesting-code-snippet)
 - [📸 Screenshots](#-screenshots)
 - [📂 File Format](#-file-format)
 - [🤝 Credits](#-credits)
+- [💡 APA 7th Edition Citation](#-apa-7th-edition-citation)
 
 ---
 
