@@ -36,10 +36,21 @@ public class TransactionManager {
                 String vendor = scanner.nextLine().trim();
 
                 System.out.print("\nEnter Amount (0.0): ");
-                double amount = scanner.nextDouble();
-                scanner.nextLine(); // clear buffer
-                if (!isDeposit) {
-                    amount = -amount;
+//                double amount = scanner.nextDouble();
+//                scanner.nextLine(); // clear buffer
+//                if (!isDeposit) {
+//                    amount = -amount;
+                double amount = 0;
+                boolean validAmount = false;
+                while (!validAmount) {
+
+                    try {
+                        String input = scanner.nextLine().trim().replace("$", ""); // Allow $ sign
+                        amount = Double.parseDouble(input);
+                        validAmount = true;
+                    } catch (NumberFormatException e) {
+                        System.out.print("❌ Invalid amount. Please enter a number (e.g., 10.50): ");
+                    }
                 }
 
                 // Create and save transaction
