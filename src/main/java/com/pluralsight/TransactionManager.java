@@ -40,6 +40,8 @@ public class TransactionManager {
                 scanner.nextLine(); // clear buffer
                 if (!isDeposit) {
                     amount = -amount;
+                    // Check budget alert
+                    Budget.checkBudgetAlert(vendor, Math.abs(amount));
                 }
 
                 // Create and save transaction

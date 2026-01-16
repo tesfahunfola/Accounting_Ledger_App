@@ -30,11 +30,12 @@ public class TransactionApp {
         do {
             System.out.println("""
                     ==✨🏡 Home Screen 🏠✨==
-                    💵💚D) Add Deposits 💰✅
+                    💵💚 D) Add Deposits 💰✅
                     💳⚡ P) Make Payment 💸💨
-                    🧮  B) Balance Tracking 🧮
-                    📘🧮L) Ledger 📊📒
-                    🚀  X) Exit 🌟👋
+                    🧮 B) Balance Tracking 🧮
+                    📘🧮 L) Ledger 📊📒
+                    💰 U) Budget Management 💰
+                    🚀 X) Exit 🌟👋
                     """);
             System.out.print("👉 Enter your choice: ");
             option = scanner.nextLine().trim().toUpperCase();
@@ -51,6 +52,9 @@ public class TransactionApp {
                     break;
                 case "L":
                     displayLedger();
+                    break;
+                case "U":
+                    displayBudgetMenu();
                     break;
                 case "X":
                     System.out.println("Exiting the app. Bye!👋");
@@ -144,5 +148,57 @@ public static void displayReportMenu(){
             }
         }while (!option.equals("0"));
 }
+
+    //                    -------- display Budget Menu --------
+    public static void displayBudgetMenu() {
+        String option;
+        do {
+            System.out.println("""
+                    --------💰 Budget Management --------
+                    📝 S) Set Budget for Vendor
+                    📊 V) View All Budgets
+                    🏠 H) Go Back Home
+                    """);
+            System.out.print("👉 Enter your choice: ");
+            option = scanner.nextLine().trim().toUpperCase();
+            switch (option) {
+                case "S":
+                    setBudget();
+                    break;
+                case "V":
+                    viewBudgets();
+                    break;
+                case "H":
+                    System.out.println("Returning to home menu...");
+                    return;
+                default:
+                    System.out.println("That's not an option.");
+            }
+        } while (!option.equalsIgnoreCase("H"));
+    }
+
+    private static void setBudget() {
+        System.out.print("Enter vendor name: ");
+        String vendor = scanner.nextLine().trim();
+        System.out.print("Enter monthly budget amount: ");
+        try {
+            double amount = Double.parseDouble(scanner.nextLine().trim());
+            Budget.setBudget(vendor, amount);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid amount.");
+        }
+    }
+
+    private static void viewBudgets() {
+        var budgets = Budget.getAllBudgets();
+        if (budgets.isEmpty()) {
+            System.out.println("No budgets set.");
+        } else {
+            System.out.println("Current Budgets:");
+            for (var entry : budgets.entrySet()) {
+                System.out.printf("%s: $%.2f%n", entry.getKey(), entry.getValue());
+            }
+        }
+    }
 
 }
