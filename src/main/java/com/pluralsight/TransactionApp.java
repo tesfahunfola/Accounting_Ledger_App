@@ -42,6 +42,7 @@ public class TransactionApp {
                     TransactionManager.addTransaction(false);
                     break;
                 case "B":
+                    BalanceTracker.showBalanceSummary();
                     break;
                 case "L":
                     displayLedger();
@@ -113,6 +114,7 @@ public static void displayReportMenu(){
             switch (option){
                 case "1":
                     Reports.displayReport(1);
+
                     break;
                 case "2":
                     Reports.displayReport(2);
