@@ -39,6 +39,13 @@ public class TransactionApp {
                     """);
             System.out.print("👉 Enter your choice: ");
             option = scanner.nextLine().trim().toUpperCase();
+            try {
+                System.out.println("🔄 Loading data, please wait...");
+                Thread.sleep(1000); // pauses the program for 8 second (8000 milliseconds)
+            } catch (InterruptedException e) {
+
+                System.out.println("⚠️ Process was interrupted: " + e.getMessage());
+            }
 
             switch (option){
                 case "D":
@@ -59,11 +66,13 @@ public class TransactionApp {
                 case "X":
                     System.out.println("Exiting the app. Bye!👋");
                     return;
+
                 default:
-                    System.out.println("That's not an option.");
+                    System.out.println("That's not an option\n\n");
                     break;
 
             }
+
         }while (!option.equalsIgnoreCase("X"));
     }
     //                    -------- display ledger Menu --------
@@ -122,6 +131,7 @@ public static void displayReportMenu(){
             switch (option){
                 case "1":
                     Reports.displayReport(1);
+
                     break;
                 case "2":
                     Reports.displayReport(2);
