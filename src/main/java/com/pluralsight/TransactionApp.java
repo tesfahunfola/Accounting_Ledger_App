@@ -35,7 +35,6 @@ public class TransactionApp {
                     TransactionManager.addTransaction(false);
                     break;
                 case "B":
-                    BalanceTracker.showBalanceSummary();
                     break;
                 case "L":
                     displayLedger();
@@ -47,6 +46,13 @@ public class TransactionApp {
                     System.out.println("That's not an option.");
                     break;
 
+            }
+            try {
+                System.out.println("🔄 Loading data, please wait...");
+                Thread.sleep(8000); // pauses the program for 8 second (8000 milliseconds)
+                System.out.println("✅ Done!\n\n");
+            } catch (InterruptedException e) {
+                System.out.println("⚠️ Process was interrupted: " + e.getMessage());
             }
         }while (!option.equalsIgnoreCase("X"));
     }
