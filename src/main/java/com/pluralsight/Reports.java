@@ -99,6 +99,7 @@ public class Reports {
             System.out.println("Error reading file: " + e.getMessage());
         }
     }
+
     public static void customSearch() {
         System.out.println("Custom Search 🔍");
         System.out.print("Start Date (YYYY-MM-DD): ");
@@ -144,6 +145,7 @@ public class Reports {
         if (found == 0) System.out.println("No matching transaction.");
 
     }
+
     private static LocalDate parseDate(String input){
         try {return input.isBlank() ? null : LocalDate.parse(input);}
         catch (Exception e){
