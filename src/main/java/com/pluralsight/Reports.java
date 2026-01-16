@@ -100,6 +100,7 @@ public class Reports {
         }
     }
 
+
     public static void customSearch() {
         System.out.println("Custom Search 🔍");
         System.out.print("Start Date (YYYY-MM-DD): ");
