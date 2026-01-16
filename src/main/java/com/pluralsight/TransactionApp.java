@@ -50,6 +50,7 @@ public class TransactionApp {
                 case "X":
                     System.out.println("Exiting the app. Bye!👋");
                     return;
+
                 default:
                     System.out.println("That's not an option\n\n");
                     break;
