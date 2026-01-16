@@ -33,6 +33,7 @@ public class BalanceTracker {
             balance = totalDeposits - totalPayments;
 
             // 🧾 Display the result summary
+
             System.out.println("\n🧮 ===== Balance Tracking Summary =====");
             System.out.printf("💰 Total Deposits:  $%.2f%n", totalDeposits);
             System.out.printf("💸 Total Payments:  $%.2f%n", totalPayments);
