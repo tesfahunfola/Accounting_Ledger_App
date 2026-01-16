@@ -30,6 +30,7 @@ public class TransactionApp {
                 System.out.println("🔄 Loading data, please wait...");
                 Thread.sleep(5000); // pauses the program for 8 second (8000 milliseconds)
             } catch (InterruptedException e) {
+
                 System.out.println("⚠️ Process was interrupted: " + e.getMessage());
             }
 
