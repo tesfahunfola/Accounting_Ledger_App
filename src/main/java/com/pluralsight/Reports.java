@@ -100,6 +100,52 @@ public class Reports {
         }
     }
 
+    public static void customSearch() {
+        System.out.println("Custom Search 🔍");
+        System.out.print("Start Date (YYYY-MM-DD): ");
+        LocalDate start = parseDate(scanner.nextLine().trim());
+
+        System.out.print("End Date (YYYY-MM-DD): ");
+        LocalDate end = parseDate(scanner.nextLine().trim());
+
+        System.out.print("Description: ");
+        String description = scanner.nextLine().trim();
+
+        System.out.print("Vendor: ");
+        String vendor = scanner.nextLine().trim();
+
+        System.out.print("Amount: ");
+        Double amount = parseAmount(scanner.nextLine().trim());
+
+        int found = 0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
+            br.readLine();
+
+            for (String line; (line = br.readLine())!= null;){
+                if (line.isBlank()) continue;
+
+                String[] p = line.split("\\|");
+                if (p.length < 5) continue;
+
+                LocalDate date = LocalDate.parse(p[0].trim());
+                String d = p[2].toLowerCase();
+                String v = p[3].toLowerCase();
+                double amnt = Double.parseDouble(p[4].trim());
+
+                if ((start != null && date.isBefore(start)) || (end != null && date.isAfter(end)) ||(!description.isEmpty() && !d.contains(description)) || (!vendor.isEmpty() && !v.contains(vendor)) || (amount != null && Double.compare(amnt, amount) != 0)) continue;
+
+                System.out.println(line);
+                found++;
+            }
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        if (found == 0) System.out.println("No matching transaction.");
+
+    }
+
     private static LocalDate parseDate(String input){
         try {return input.isBlank() ? null : LocalDate.parse(input);}
         catch (Exception e){
