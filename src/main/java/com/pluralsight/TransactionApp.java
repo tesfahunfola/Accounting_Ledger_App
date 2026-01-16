@@ -28,7 +28,7 @@ public class TransactionApp {
             option = scanner.nextLine().trim().toUpperCase();
             try {
                 System.out.println("🔄 Loading data, please wait...");
-                Thread.sleep(2000); // pauses the program for 8 second (8000 milliseconds)
+                Thread.sleep(1000); // pauses the program for 8 second (8000 milliseconds)
             } catch (InterruptedException e) {
 
                 System.out.println("⚠️ Process was interrupted: " + e.getMessage());
